@@ -1,0 +1,14 @@
+# Run outputs — keep the folder, ignore its contents
+runs/*
+!runs/.gitkeep
+
+# Optionally also gitignore the final portfolio if you regard it as private
+# portfolio.md
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
