@@ -224,6 +224,33 @@ MIT. See [LICENSE](LICENSE).
 
 ---
 
+## Methodology notes from production runs
+
+These are lessons learned from real runs of this template that are now encoded into the briefs and the orchestrator. They're documented here because they apply across domains, not just the specific runs that surfaced them.
+
+### Incumbent check is non-negotiable
+
+The single biggest failure mode of Round 1 is explorers proposing concepts without checking who already ships them. In one production run, 3 of 5 finalists were KILLed in Round 2 the moment a validator ran a single `web_search` — every kill was an incumbent the R1 explorer hadn't looked for. This is now enforced in the explorer brief via a mandatory `verified_incumbents` field with ≥2 URL-verified incumbents (or an explicit `none-found-after` audit of search queries tried). Concepts missing this field are rejected by the orchestrator before they reach the finalist shortlist.
+
+### Mechanism-verification symmetry
+
+When a Round 2 validator KILLs a concept by finding an incumbent, it's tempting to accept the validator's PIVOT suggestion at face value. Don't. The same rigor used to verify incumbents must be applied to verify the pivot's claimed revenue / value primitives — affiliate programs, lead-gen partnerships, API endpoints, paying channels. In practice, validators tend to catch concepts on incumbent-existence but propose pivots resting on *assumed* monetization primitives ("affiliate programs probably exist for X"). The validator brief now has a mandatory **Section 0 — Stated-mechanism primitives verification** that runs before everything else and applies symmetrically to both the original concept and any pivot.
+
+### Useful discovery framings
+
+Two framings have surfaced through use that consistently outperform "what should I build?":
+
+- **Revenue-primitive inversion.** Instead of starting from "what data / concept could I build" and hunting backward for monetization, start from a confirmed, publicly-documented monetization primitive (e.g., a real affiliate program with public terms, a real lead-gen marketplace with public CPL rates) and hunt forward for the data vertical that would feed it. This inverts the usual ideation flow and tends to produce concepts that don't die in Round 2.
+- **Geographic-gap framing.** Identify services, datasets, or platforms that are taken for granted in one geography (commonly: Bay Area / California for consumer-tech and SMB services) and absent from the operator's home market — not because they're impossible, but because no one locally has thought to build them. Geographic arbitrage of *ideas*, not of products. This works best when the operator has direct lived experience of both markets or strong reason to believe one is structurally ahead of the other.
+
+Both framings are domain-agnostic and can be cited in your `prompts/explorer-brief.md` as discovery guidance for explorers.
+
+### When R3 should FAIL
+
+Round 3 (focused deep-dive) is optional and should be permitted to return `FAILED` as a clean outcome — explicitly mark this in the R3 task description. If the operator's design space genuinely contains only one survivor after R2, forcing a second-concept discovery produces fragile candidates that die in a R4 you don't want to run. A single-concept portfolio is a legitimate landing; the brief asking for "1–3" means *minimum 1*, not *at least 2*.
+
+---
+
 ## Credits
 
 Built by treating Claude Code as a multi-agent orchestrator rather than a single-context coder. If this template helps you, a star or a postcard is welcome.

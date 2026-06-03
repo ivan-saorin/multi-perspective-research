@@ -73,6 +73,8 @@ Spawn ONE focused agent with a narrow brief composed by the user (or by you, wit
 - **Vague concepts are rejected.** A valid concept specifies WHAT is done, with WHAT tools, producing WHAT artifact, reaching users via WHAT path, succeeding by WHAT mechanism.
 - **Out-of-scope violations waste slots.** If an agent produces a concept that violates a hard exclusion in the brief, it does not enter the finalist pool.
 - **Cheerleading is not synthesis.** Adversarial framing throughout. A "best ideas" list with no challenge is a failure mode.
+- **Missing-incumbent concepts are rejected.** Every R1 concept must have a populated `verified_incumbents` field (≥2 named with URLs, OR an explicit `none-found-after: [queries]` audit trail). Concepts without this are treated as missing-research — they do not enter the finalist shortlist regardless of how interesting they look. This catches the systemic R1 process gap where explorers propose concepts without checking who already ships them.
+- **Apply mechanism-verification symmetry in R2.** When a validator KILLs a concept by finding an incumbent OR by failing to verify a revenue/value primitive, apply the same primitive-verification standard to any PIVOT it proposes. A pivot that escapes incumbent-detection by being adjacent must NOT escape primitive-verification by being aspirational. If the pivot's revenue mechanism rests on `[unverified — assumed]` primitives, downgrade the verdict from PROCEED to PROCEED-with-caveats and list the verification step explicitly.
 
 ## DO NOT
 

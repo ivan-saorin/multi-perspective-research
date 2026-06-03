@@ -20,6 +20,16 @@ Read the concept's description in `runs/round-1-synthesis.md`. If the synthesis 
 
 Output the following sections in this order. Each section is mandatory unless explicitly marked optional.
 
+### 0. Stated-mechanism primitives verification
+
+**MANDATORY. This precedes everything.** List every actionable mechanism the concept depends on for its success: revenue programs (affiliate, lead-gen, sponsored), data sources (specific APIs, scrapeable sites, RSS feeds), partnerships (named third parties), technical primitives (specific MCP servers, OAuth flows, payment processors). For EACH:
+
+- Find URL-level evidence the primitive exists today (the affiliate program page, the API documentation, the partner directory, etc.)
+- Note its terms where relevant (commission %, geographic scope, audience-type eligibility, cookie window, payout floor)
+- If you cannot find URL-level evidence after diligent search, tag the primitive `[unverified — assumed by concept]` and flag this as a structural risk
+
+The Round-1 explorer may have NAMED a mechanism without verifying it exists. This section catches that asymmetry: the same rigor used to verify incumbents (Section 2) must be applied to verify the concept's own revenue / value primitives. A concept where ≥1 load-bearing primitive is `[unverified — assumed]` is at minimum a PROCEED-with-caveats; ≥2 is usually a PIVOT or KILL.
+
 ### 1. Concept restatement (≤100 words)
 
 Restate in your own words. If you can't restate it crisply, that itself is a finding — note it.

@@ -55,6 +55,7 @@ For each item, fill every field below. Use either a Markdown table or uniform su
 |---|---|
 | `name` | short, memorable |
 | `pitch` | ≤20 words |
+| `verified_incumbents` | **MANDATORY for every concept.** ≥2 named incumbents / near-substitutes already serving this audience or solving this problem, each with a real URL verified via `web_search` during this run (not from memory). If after diligent search you genuinely find none, write `none-found-after: [list 3+ search queries tried]` — that emptiness IS a strong finding. Concepts submitted without this field are treated as missing-research and rejected from the finalist shortlist by the orchestrator. |
 [FILL: Add domain-specific fields. Examples for a monetization brief:
 | `target_user` | who reads / who pays |
 | `daily_payload` | what 5–10 things change each day (give one realistic example day) |
